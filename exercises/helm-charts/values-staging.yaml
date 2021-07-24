@@ -5,7 +5,7 @@ replicaCount: 1
 
 service:
   port: 8111
-  type: ClusterIp
+  type: ClusterIP
 
 image:
   repository: nginx

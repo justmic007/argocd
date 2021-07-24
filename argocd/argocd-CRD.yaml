@@ -1,0 +1,18 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: nginx-alpine 
+  namespace: argocd
+spec:
+# set the cluster to be deployed on. In this case, the local cluster to deploy our resources
+  destination:
+    namespace: default
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+  # path to folder with the YAML manifests
+    path: exercises/manifests
+    repoURL: https://github.com/justmic007/nd064_course_1 
+    targetRevision: HEAD
+    # Sync policy. If left empty, the policy will be set to manual
+  syncPolicy: {}
